@@ -1,9 +1,10 @@
 ﻿Imports Newtonsoft.Json
 
+
 Public Class MinecraftChecker
-    Public Shared Function CheckServerStatus(host As String, Optional corePath As String = "pingMC.py", Optional port As Integer = 25565) As String
+    Public Shared Function CheckServerStatus(host As String, pythonPath As String, Optional corePath As String = "pingMC.py", Optional port As Integer = 25565) As String
         Dim processInfo As New ProcessStartInfo()
-        processInfo.FileName = "python" ' 假設 Python 已經添加到系統路徑中
+        processInfo.FileName = pythonPath ' 假設 Python 已經添加到系統路徑中
         processInfo.Arguments = $"{corePath} " & host & " " & port
         processInfo.UseShellExecute = False
         processInfo.RedirectStandardOutput = True
